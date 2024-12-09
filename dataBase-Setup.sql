@@ -33,3 +33,13 @@ CREATE TABLE movie(
     duration INT NOT NULL,
     rating VARCHAR(10) NOT NULL
 );
+
+-- Creation of the table watchHistory
+USE MovieStreaming;
+CREATE TABLE watchHistory(
+	watchHistoryID INT PRIMARY KEY AUTO_INCREMENT,
+    userID INT NOT NULL,
+    movieID INT NOT NULL,
+    watchDATE DATE NOT NULL,
+    completionPercentage INT DEFAULT 0
+);
