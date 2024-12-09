@@ -43,3 +43,14 @@ CREATE TABLE watchHistory(
     watchDATE DATE NOT NULL,
     completionPercentage INT DEFAULT 0
 );
+
+-- Creation of the table Review
+USE MovieStreaming;
+CREATE TABLE review(
+    reviewID INT PRIMARY KEY AUTO_INCREMENT,
+    userID INT NOT NULL,
+    movieID INT NOT NULL,
+    rating INT NOT NULL,
+    reviewText TEXT NOT NULL,
+    reviewDate DATE NOT NULL
+)
