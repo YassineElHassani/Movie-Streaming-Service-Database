@@ -61,6 +61,12 @@ ADD CONSTRAINT fk_subscriptionID FOREIGN KEY (subscriptionID) REFERENCES subscri
 
 -- FOREIGN KEY userID
 ALTER TABLE watchHistory
-ADD CONSTRAINT fk_userID FOREIGN KEY (userID) REFERENCES userInfo(userID);
+ADD CONSTRAINT fk_userID_watchHistory FOREIGN KEY (userID) REFERENCES userInfo(userID);
 ALTER TABLE review
-ADD CONSTRAINT fk_userID FOREIGN KEY (userID) REFERENCES userInfo(userID);
+ADD CONSTRAINT fk_userID_review FOREIGN KEY (userID) REFERENCES userInfo(userID);
+
+-- FOREIGN KEY movieID
+ALTER TABLE watchHistory
+ADD CONSTRAINT fk_movieID_watchHistory FOREIGN KEY (movieID) REFERENCES movie(movieID);
+ALTER TABLE review
+ADD CONSTRAINT fk_movieID_review FOREIGN KEY (movieID) REFERENCES movie(movieID);
