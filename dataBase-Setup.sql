@@ -54,3 +54,13 @@ CREATE TABLE review(
     reviewText TEXT NOT NULL,
     reviewDate DATE NOT NULL
 )
+
+-- FOREIGN KEY subscriptionID
+ALTER TABLE userinfo 
+ADD CONSTRAINT fk_subscriptionID FOREIGN KEY (subscriptionID) REFERENCES subscription(subscriptionID);
+
+-- FOREIGN KEY userID
+ALTER TABLE watchHistory
+ADD CONSTRAINT fk_userID FOREIGN KEY (userID) REFERENCES userInfo(userID);
+ALTER TABLE review
+ADD CONSTRAINT fk_userID FOREIGN KEY (userID) REFERENCES userInfo(userID);
