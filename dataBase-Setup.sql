@@ -90,3 +90,8 @@ FROM userinfo LEFT JOIN subscription ON userinfo.subscriptionID = subscription.s
 SELECT userInfo.firstName, userInfo.lastName, movie.title, watchHistory.watchDATE
 FROM watchHistory JOIN userInfo ON watchHistory.userID = userInfo.userID JOIN movie ON watchHistory.movieID = movie.movieID
 WHERE watchHistory.completionPercentage = 100;
+
+-- 6- Sort and Limit: Show the 5 longest movies, sorted by duration.
+SELECT title AS movieTitle, genre, duration 
+FROM movie
+ORDER BY duration DESC LIMIT 5
