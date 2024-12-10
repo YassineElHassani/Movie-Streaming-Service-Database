@@ -86,3 +86,7 @@ SET subscriptionID = 2 WHERE subscriptionID = 1;
 SELECT userinfo.firstName, userinfo.lastName, subscription.subscriptionType
 FROM userinfo LEFT JOIN subscription ON userinfo.subscriptionID = subscription.subscriptionID;
 
+-- 5- Filter Viewings: Find all users who have finished watching a movie.
+SELECT userInfo.firstName, userInfo.lastName, movie.title, watchHistory.watchDATE
+FROM watchHistory JOIN userInfo ON watchHistory.userID = userInfo.userID JOIN movie ON watchHistory.movieID = movie.movieID
+WHERE watchHistory.completionPercentage = 100;
