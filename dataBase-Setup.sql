@@ -95,3 +95,10 @@ WHERE watchHistory.completionPercentage = 100;
 SELECT title AS movieTitle, genre, duration 
 FROM movie
 ORDER BY duration DESC LIMIT 5
+
+
+-- 7- Aggregation: Calculate the average completion percentage for each movie.
+SELECT movie.title AS movieTitle, AVG(watchhistory.completionPercentage) AS AVG_Percentage
+FROM movie 
+LEFT JOIN watchhistory ON movie.movieID = watchhistory.movieID
+GROUP BY movie.title;
