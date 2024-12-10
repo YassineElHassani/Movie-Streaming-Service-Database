@@ -1,4 +1,4 @@
--- Name: Yassine El hassani
+-- Name: YASSINE EL HASSANI
 -- Email: jinrox00@gmail.com
 
 -- Creation of the database
@@ -29,7 +29,7 @@ CREATE TABLE movie(
 	movieID INT PRIMARY KEY AUTO_INCREMENT,
     title VARCHAR(255) NOT NULL,
     genre VARCHAR(100) NOT NULL,
-    releaseYear INT NOT NULL,
+    releaseYear INT CHECK (releaseYear >= 1000 AND releaseYear <= 3000) NOT NULL,
     duration INT NOT NULL,
     rating VARCHAR(10) NOT NULL
 );
@@ -51,7 +51,7 @@ CREATE TABLE review(
     userID INT NOT NULL,
     movieID INT NOT NULL,
     rating INT NOT NULL,
-    reviewText TEXT NOT NULL,
+    reviewText TEXT NULL,
     reviewDate DATE NOT NULL
 )
 
@@ -70,3 +70,6 @@ ALTER TABLE watchHistory
 ADD CONSTRAINT fk_movieID_watchHistory FOREIGN KEY (movieID) REFERENCES movie(movieID);
 ALTER TABLE review
 ADD CONSTRAINT fk_movieID_review FOREIGN KEY (movieID) REFERENCES movie(movieID);
+
+-- 1 - Insert Movie: Add a new movie titled Data Science Adventures in the genre "Documentary".
+INSERT into movie (title, genre, releaseYear, duration, rating) VALUES ('Data Science Adventures', 'Documentary', 2006, 48, 'R');
