@@ -102,3 +102,9 @@ SELECT movie.title AS movieTitle, AVG(watchhistory.completionPercentage) AS AVG_
 FROM movie 
 LEFT JOIN watchhistory ON movie.movieID = watchhistory.movieID
 GROUP BY movie.title;
+
+-- 8- Group By: Group users by subscription type and count the total number of users per group.
+SELECT COUNT(userinfo.userID) AS totalSubs, subscription.subscriptionType
+FROM userinfo
+JOIN subscription ON userinfo.subscriptionID = subscription.subscriptionID
+GROUP BY subscription.subscriptionType;
