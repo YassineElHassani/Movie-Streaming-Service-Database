@@ -82,3 +82,7 @@ SELECT title, releaseYear FROM movie WHERE releaseYear > 2020 AND genre = 'Comed
 UPDATE userinfo 
 SET subscriptionID = 2 WHERE subscriptionID = 1;
 
+-- 4- Show Subscriptions: Attach users to their subscription types.
+SELECT userinfo.firstName, userinfo.lastName, subscription.subscriptionType
+FROM userinfo LEFT JOIN subscription ON userinfo.subscriptionID = subscription.subscriptionID;
+
