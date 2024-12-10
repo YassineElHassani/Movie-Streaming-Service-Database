@@ -71,8 +71,14 @@ ADD CONSTRAINT fk_movieID_watchHistory FOREIGN KEY (movieID) REFERENCES movie(mo
 ALTER TABLE review
 ADD CONSTRAINT fk_movieID_review FOREIGN KEY (movieID) REFERENCES movie(movieID);
 
--- 1 - Insert Movie: Add a new movie titled Data Science Adventures in the genre "Documentary".
+--The requests
+-- 1- Insert Movie: Add a new movie titled Data Science Adventures in the genre "Documentary".
 INSERT into movie (title, genre, releaseYear, duration, rating) VALUES ('Data Science Adventures', 'Documentary', 2006, 48, 'R');
 
 -- 2- Search Movies: List all movies in the genre "Comedy" released after 2020
-SELECT title, releaseYear FROM movie WHERE releaseYear = 2020 AND genre = 'Comedy';
+SELECT title, releaseYear FROM movie WHERE releaseYear > 2020 AND genre = 'Comedy';
+
+-- 3- Subscriptions Update: Upgrade all users from "Basic" to "Premium".
+UPDATE userinfo 
+SET subscriptionID = 2 WHERE subscriptionID = 1;
+
