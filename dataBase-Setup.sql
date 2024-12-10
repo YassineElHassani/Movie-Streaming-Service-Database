@@ -108,3 +108,8 @@ SELECT COUNT(userinfo.userID) AS totalSubs, subscription.subscriptionType
 FROM userinfo
 JOIN subscription ON userinfo.subscriptionID = subscription.subscriptionID
 GROUP BY subscription.subscriptionType;
+
+-- 9- Subquery (Bonus): Find movies with an average rating above 4.
+SELECT movie.movieID, movie.title, (SELECT AVG(review.rating)) AS rating_AVG 
+FROM movie JOIN review ON movie.movieID = review.movieID 
+GROUP BY movie.movieID, movie.title HAVING rating_AVG > 4;
