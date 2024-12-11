@@ -113,3 +113,9 @@ GROUP BY subscription.subscriptionType;
 SELECT movie.movieID, movie.title, (SELECT AVG(review.rating)) AS rating_AVG 
 FROM movie JOIN review ON movie.movieID = review.movieID 
 GROUP BY movie.movieID, movie.title HAVING rating_AVG > 4;
+
+-- 10- Self-Join (Bonus): Find pairs of movies of the same genre released in the same year.
+SELECT m1.title AS movieTitle1, m2.title AS movieTitle2, m1.Genre, m1.ReleaseYear
+FROM movie m1
+JOIN movie m2 ON  m1.Genre = m2.Genre 
+AND m1.ReleaseYear = m2.ReleaseYear AND m1.MovieID < m2.MovieID;
